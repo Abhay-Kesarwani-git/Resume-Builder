@@ -2,6 +2,8 @@ import React, { use, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link , useNavigate } from 'react-router-dom'
 import { logout } from '../app/features/authSlice';
+import logo from '../assets/logo.svg';
+
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const Navbar = () => {
     <div className='shadow bg-white'>
       <nav className='flex items-center justify-between max-w-7xl mx-auto px-4 pu-3.5 text-slate-800 transition-all'>
         <Link to = '/'>
-        <img src="/src/assets/logo.svg" alt="Logo" className='h-11 w-auto object-contain'/>
+        <img src={logo} alt="Logo" className='h-11 w-auto object-contain'/>
         </Link>
         <div className='flex items-center gap-4 text-sm'>
             <p className='max-sm:hidden'>Hi, {user?.name}</p>
