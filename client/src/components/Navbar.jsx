@@ -2,8 +2,6 @@ import React, { use, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link , useNavigate } from 'react-router-dom'
 import { logout } from '../app/features/authSlice';
-import logo from '../assets/logo.svg';
-
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -12,14 +10,14 @@ const Navbar = () => {
   const logoutUser = async() => {
     console.log(user);
     navigate('/');
-    dispatch(logout())
+    dispatch(logout)
   }
   return (
     <div className='shadow bg-white'>
       <nav className='flex items-center justify-between max-w-7xl mx-auto px-4 pu-3.5 text-slate-800 transition-all'>
-        <Link to = '/'>
-        <img src={logo} alt="Logo" className='h-11 w-auto object-contain'/>
-        </Link>
+        <Link to="/">  {/* This ensures SPA navigation */}
+        <img src="/logo.svg" alt="Logo" className="h-11 w-auto object-contain" />
+      </Link>
         <div className='flex items-center gap-4 text-sm'>
             <p className='max-sm:hidden'>Hi, {user?.name}</p>
             <button onClick= {logoutUser} className='bg-white hover:bg-slate-50 border border-gray-300 px-7 py-1.5 rounded-full active:scale-95 transition-all'>Logout</button>
